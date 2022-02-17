@@ -31,7 +31,7 @@ function readLine() {
 
 function timeConversion(s) {
     // Write your code here
-    
+   /* 
     const arrayTime= [...s];
     
     var hours=arrayTime.slice(0,2).join('');
@@ -50,6 +50,18 @@ function timeConversion(s) {
    seconds.toString();
     
     return(militaryHour.toString() + ":" + minutes.toString() + ":" + seconds.toString());
+*/
+    const format = s.substring(s.length - 2);
+    let hour = s.substring(0, 2);
+    const minusSecond = s.substring(2, 8);
+    if (format == "AM") {
+        hour = hour == 12 ? '00' : hour;
+    }
+    if (format == "PM") {
+        hour = +hour + 12 < 24 ? +hour + 12 : '12';
+    }
+    return hour + "" + minusSecond;
+
 }
 
 function main() {
